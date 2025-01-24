@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9887173b14f04f04bab04a4e1ab43a21
+guid: ab1c8ed56fb794945b22764021e8be37
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: message_icon_0
+      name: mc_idle_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 175
-        width: 48
-        height: 42
+        x: 0
+        y: 0
+        width: 32
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f570a72ca21a5c449f100cdf3466a5e
-      internalID: 2108545168
+      spriteID: a6215f14aca67594ba7dbeee0c5f55bd
+      internalID: -237482873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_idle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1acce9a822c79f5438964f915ba39ce9
+      internalID: -1838057227
       vertices: []
       indices: 
       edges: []
@@ -141,7 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      message_icon_0: 2108545168
+      mc_idle_0: -237482873
+      mc_idle_1: -1838057227
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
