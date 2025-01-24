@@ -13,6 +13,7 @@ public class PlayerCityBomb : MonoBehaviour
     int useBombNum;
     [SerializeField] TMP_Text bombText;
     [SerializeField] Action gameState;
+    [SerializeField] GameObject bombPrefap;
 
 
     // Start is called before the first frame update
@@ -59,8 +60,11 @@ public class PlayerCityBomb : MonoBehaviour
 
     void DropBomb()
     {
-        //make bomb destroy building
-        useBombNum -= 1;
+        if (!(useBombNum < 1))
+        {
+            Instantiate(bombPrefap, playerObj.transform.position, playerObj.transform.rotation);
+            useBombNum -= 1;
+        }
     }
 
 }
