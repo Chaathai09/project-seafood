@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SIPlayer : MonoBehaviour
+public class SIPlayer : MonoBehaviour, CityBombCondition
 {
     GameObject siPlayer;
     [SerializeField] float speed;
     Action gameState;
     Transform tempPos;
+    [SerializeField] GameObject ammoprefap;
+    [SerializeField] SIEnemyAI enemyAIMirror;
 
     private void Awake()
     {
@@ -23,6 +25,11 @@ public class SIPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameState();
+    }
+
+    void MiniGameRun()
+    {
         tempPos = siPlayer.transform;
 
         tempPos.Translate(new Vector2((Input.GetAxisRaw("Horizontal") * speed) * Time.deltaTime, (Input.GetAxisRaw("Vertical") * speed) * Time.deltaTime));
@@ -30,14 +37,13 @@ public class SIPlayer : MonoBehaviour
         tempPos.position = new Vector2(Math.Clamp(tempPos.position.x, -8f, 8f), Math.Clamp(tempPos.position.y, -4f, 4f));
 
         siPlayer.transform.position = tempPos.position;
-    }
 
-    void MiniGameRun()
-    {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             ShotAmmo();
         }
+
+        enemyAIMirror.EnemyMove();
     }
 
     void WaitForStart()
@@ -53,6 +59,14 @@ public class SIPlayer : MonoBehaviour
 
     void ShotAmmo()
     {
+        GameObject temp = Instantiate(ammoprefap, siPlayer.transform.position, siPlayer.transform.rotation);
+        temp.tag = "PlayerObj";
+        temp.gameObject.GetComponent<SIAmmo>().ammoFrom = "PlayerObj";
+        enemyAIMirror.ShotAmmo();
+    }
 
+    public void IsHit()
+    {
+        Debug.Log("Player get Hit");
     }
 }
