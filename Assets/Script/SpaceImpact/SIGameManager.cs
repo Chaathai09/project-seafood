@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SIGameManager : MonoBehaviour
 {
     public static SIGameManager Instance;
     public int SIScore = 0;
+    [SerializeField] TMP_Text siScoreText;
+    [SerializeField] int getScore;
 
     private void Awake()
     {
@@ -20,6 +23,12 @@ public class SIGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        siScoreText.text = SIScore.ToString();
     }
+
+    public void AddScore()
+    {
+        SIScore += getScore;
+    }
+
 }

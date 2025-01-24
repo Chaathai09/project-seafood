@@ -11,6 +11,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     Transform tempPos;
     [SerializeField] GameObject ammoprefap;
     [SerializeField] SIEnemyAI enemyAIMirror;
+    [SerializeField] int playerHP;
 
     private void Awake()
     {
@@ -67,6 +68,6 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
 
     public void IsHit()
     {
-        Debug.Log("Player get Hit");
+        
     }
 }

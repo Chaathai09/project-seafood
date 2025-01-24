@@ -44,6 +44,6 @@ public class SIEnemyAI : MonoBehaviour, CityBombCondition
 
     public void IsHit()
     {
-        Debug.Log("Enemy get Hit");
+        SIGameManager.Instance.AddScore();
     }
 }

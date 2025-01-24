@@ -5,7 +5,7 @@ using UnityEngine;
 public class SIAmmo : MonoBehaviour, CityBombCondition
 {
     [SerializeField] float speed;
-    public string ammoFrom;
+    public string ammoFrom;    
 
     // Start is called before the first frame update
     void Start()
