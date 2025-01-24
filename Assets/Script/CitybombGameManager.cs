@@ -15,6 +15,11 @@ public class CitybombGameManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        cityBombScoreText.text = cityBombScore.ToString();
+    }
+
     public void AddScore()
     {
         cityBombScore += buildingScore;

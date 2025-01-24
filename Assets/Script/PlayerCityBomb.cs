@@ -37,6 +37,11 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
         {
             playerObj.transform.position = new Vector2(startPoint.x, playerObj.transform.position.y - 1f);
             useBombNum = bombNum;
+
+            if (playerObj.transform.position.y < -4f)
+            {
+                EndMiniGame();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -70,13 +75,18 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
 
     public void IsHit()
     {
-        OnHit();
+        EndMiniGame();
     }
 
-    void OnHit()
+    void EndMiniGame()
     {
         //do end game
-        gameState = null;
+        gameState = Nothing;
+    }
+
+    void Nothing()
+    {
+        //just do nothing to anti null ref.
     }
 
 }
