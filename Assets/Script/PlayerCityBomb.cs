@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerCityBomb : MonoBehaviour
+public class PlayerCityBomb : MonoBehaviour, CityBombCondition
 {
     [SerializeField] GameObject playerObj;
     [SerializeField] float speed;
@@ -14,6 +14,7 @@ public class PlayerCityBomb : MonoBehaviour
     [SerializeField] TMP_Text bombText;
     [SerializeField] Action gameState;
     [SerializeField] GameObject bombPrefap;
+    [SerializeField] float delayTime;
 
 
     // Start is called before the first frame update
@@ -28,7 +29,6 @@ public class PlayerCityBomb : MonoBehaviour
     {
         gameState();
         bombText.text = useBombNum.ToString();
-        Debug.Log(gameState);
     }
 
     void MiniGameRun()
@@ -62,9 +62,21 @@ public class PlayerCityBomb : MonoBehaviour
     {
         if (!(useBombNum < 1))
         {
-            Instantiate(bombPrefap, playerObj.transform.position, playerObj.transform.rotation);
+            Vector2 temp = new Vector2(MathF.Round(playerObj.transform.position.x), playerObj.transform.position.y);
+            Instantiate(bombPrefap, temp, playerObj.transform.rotation);
             useBombNum -= 1;
         }
+    }
+
+    public void IsHit()
+    {
+        OnHit();
+    }
+
+    void OnHit()
+    {
+        //do end game
+        gameState = null;
     }
 
 }

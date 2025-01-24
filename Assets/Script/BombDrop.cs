@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombDrop : MonoBehaviour
+public class BombDrop : MonoBehaviour, CityBombCondition
 {
     [SerializeField] float speed;
 
@@ -13,5 +13,16 @@ public class BombDrop : MonoBehaviour
 
         if (this.transform.position.y <= -5f)
             Destroy(this.gameObject);
+    }
+
+    public void IsHit()
+    {
+        OnHit();
+    }
+
+    void OnHit()
+    {
+        //do end game
+        Destroy(this.gameObject);
     }
 }
