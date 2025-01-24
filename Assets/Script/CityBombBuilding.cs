@@ -26,6 +26,7 @@ public class CityBombBuilding : MonoBehaviour
     void OnHit()
     {
         //play ani
+        CitybombGameManager.Instance.AddScore();
         Destroy(this.gameObject);
     }
 }
