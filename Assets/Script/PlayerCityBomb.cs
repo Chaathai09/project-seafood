@@ -76,7 +76,12 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     void OnHit()
     {
         //do end game
-        gameState = null;
+        gameState = Nothing;
+    }
+
+    void Nothing()
+    {
+
     }
 
 }
