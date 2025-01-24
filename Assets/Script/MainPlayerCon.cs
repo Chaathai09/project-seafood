@@ -20,6 +20,6 @@ public class MainPlayerCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        siPlayer.transform.Translate(new Vector2(0f, (Input.GetAxisRaw("Vertical") * speed) * Time.deltaTime));
+        siPlayer.transform.Translate(new Vector2((Input.GetAxisRaw("Horizontal") * speed) * Time.deltaTime, 0f));
     }
 }
