@@ -12,7 +12,7 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     [SerializeField] int bombNum;
     int useBombNum;
     [SerializeField] TMP_Text bombText;
-    [SerializeField] Action gameState;
+    Action gameState;
     [SerializeField] GameObject bombPrefap;
     [SerializeField] float delayTime;
 
@@ -81,7 +81,7 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     void EndMiniGame()
     {
         //do end game
-        gameState = Nothing;
+        ChangeState(Nothing);
     }
 
     void Nothing()
