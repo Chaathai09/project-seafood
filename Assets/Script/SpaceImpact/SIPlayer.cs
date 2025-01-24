@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SIPlayer : MonoBehaviour, CityBombCondition
@@ -12,6 +13,9 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     [SerializeField] GameObject ammoprefap;
     [SerializeField] SIEnemyAI enemyAIMirror;
     [SerializeField] int playerHP;
+    bool canHit = true;
+    [SerializeField] GameObject playerSprite;
+    [SerializeField] TMP_Text playerHPText;
 
     private void Awake()
     {
@@ -27,6 +31,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     void Update()
     {
         gameState();
+        playerHPText.text = playerHP.ToString();
     }
 
     void MiniGameRun()
@@ -68,6 +73,44 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
 
     public void IsHit()
     {
-        
+        LossHP();
+    }
+
+    void LossHP()
+    {
+        if (canHit)
+        {
+            canHit = false;
+            playerHP -= 1;
+            if (playerHP < 0)
+            {
+                OnLose();
+            }
+            else
+                StartCoroutine(FlashHP());
+        }
+    }
+
+    IEnumerator FlashHP()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            playerSprite.SetActive(false);
+            yield return new WaitForSeconds(0.25f);
+            playerSprite.SetActive(true);
+            yield return new WaitForSeconds(0.25f);
+        }
+        canHit = true;
+    }
+
+    void OnLose()
+    {
+        ChangeState(Nothing);
+        //play dies ani
+    }
+
+    void Nothing()
+    {
+
     }
 }
