@@ -57,6 +57,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
         if (Input.GetKeyDown(KeyCode.Z))
         {
             ChangeState(MiniGameRun);
+            enemyAIMirror.ShotAmmo();
             SIGameManager.Instance.StartGame();
         }
     }
@@ -71,7 +72,6 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
         GameObject temp = Instantiate(ammoprefap, siPlayer.transform.position, siPlayer.transform.rotation);
         temp.tag = "PlayerObj";
         temp.gameObject.GetComponent<SIAmmo>().ammoFrom = "PlayerObj";
-        enemyAIMirror.ShotAmmo();
     }
 
     public void IsHit()
@@ -109,6 +109,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     void OnLose()
     {
         ChangeState(Nothing);
+        enemyAIMirror.StopAllCoroutines();
         SIGameManager.Instance.StopGame();
         //play dies ani
     }
@@ -121,6 +122,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     public void EndGame()
     {
         ChangeState(Nothing);
+        enemyAIMirror.StopAllCoroutines();
         SIGameManager.Instance.StopGame();
     }
 }

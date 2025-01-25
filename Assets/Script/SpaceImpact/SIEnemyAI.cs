@@ -8,6 +8,7 @@ public class SIEnemyAI : MonoBehaviour, CityBombCondition
 {
     [SerializeField] float speed;
     [SerializeField] GameObject ammoprefap;
+    public float shotDelay;
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +38,20 @@ public class SIEnemyAI : MonoBehaviour, CityBombCondition
 
     public void ShotAmmo()
     {
-        GameObject temp = Instantiate(ammoprefap, this.transform.position, Quaternion.Euler(0f, 180f, 0f));
-        temp.tag = "EnemyObj";
-        temp.gameObject.GetComponent<SIAmmo>().ammoFrom = "EnemyObj";
+        StartCoroutine(ShotDelay());
     }
 
     public void IsHit()
     {
         SIGameManager.Instance.AddScore();
+    }
+
+    virtual public IEnumerator ShotDelay()
+    {
+        GameObject temp = Instantiate(ammoprefap, this.transform.position, Quaternion.Euler(0f, 180f, 0f));
+        temp.tag = "EnemyObj";
+        temp.gameObject.GetComponent<SIAmmo>().ammoFrom = "EnemyObj";
+        yield return new WaitForSeconds(shotDelay);
+        StartCoroutine(ShotDelay());
     }
 }
