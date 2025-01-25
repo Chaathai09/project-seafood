@@ -6,7 +6,7 @@ public class SINEnemyGroupCon : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefap;
     [SerializeField] int startPos, row;
-    [SerializeField] float moveTime;
+    [SerializeField] float moveTime, minusTime;
     float goDriction = 0.5f;
     // Start is called before the first frame update
     void Start()
@@ -53,5 +53,10 @@ public class SINEnemyGroupCon : MonoBehaviour
         yield return new WaitForSeconds(moveTime);
         this.transform.Translate(new Vector2(goDriction, 0f));
         StartCoroutine(EnemyMove());
+    }
+
+    public void MinusTime()
+    {
+        moveTime -= minusTime;
     }
 }

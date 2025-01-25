@@ -40,7 +40,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
 
         tempPos.Translate(new Vector2((Input.GetAxisRaw("Horizontal") * speed) * Time.deltaTime, (Input.GetAxisRaw("Vertical") * speed) * Time.deltaTime));
 
-        tempPos.position = new Vector2(Math.Clamp(tempPos.position.x, -8f, 8f), Math.Clamp(tempPos.position.y, -4f, 4f));
+        tempPos.position = new Vector2(Mathf.Clamp(tempPos.position.x, -8f, 8f), Mathf.Clamp(tempPos.position.y, -4f, 4f));
 
         siPlayer.transform.position = tempPos.position;
 

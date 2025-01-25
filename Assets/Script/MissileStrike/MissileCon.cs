@@ -15,6 +15,8 @@ public class MissileCon : MonoBehaviour
     void Update()
     {
         this.transform.Translate((Vector2.up * speed) * Time.deltaTime);
+        if (this.transform.position.y >= 8f)
+            Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
