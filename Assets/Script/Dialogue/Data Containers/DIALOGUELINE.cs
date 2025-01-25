@@ -6,17 +6,17 @@ namespace DIALOGUE
 {
     public class DIALOGUELINE
     {
-        public string speaker;
+        public SPEAKERDATA speaker;
         public DIALOGUEDATA dialogue;
-        public string commands;
-        public bool hasSpeaker => speaker != string.Empty;
-        public bool hasDialogue => dialogue.hasDialogue;
-        public bool hasCommands => commands != string.Empty;
+        public COMMANDDATA commandData;
+        public bool hasSpeaker => speaker != null;
+        public bool hasDialogue => dialogue != null;
+        public bool hasCommands => commandData != null;
 
         public DIALOGUELINE(string speaker, string dialogue, string commands){
-            this.speaker = speaker;
-            this.dialogue = new DIALOGUEDATA(dialogue);
-            this.commands = commands;
+            this.speaker = (string.IsNullOrWhiteSpace(speaker) ? null: new SPEAKERDATA(speaker));
+            this.dialogue = (string.IsNullOrWhiteSpace(dialogue) ? null: new DIALOGUEDATA(dialogue));
+            this.commandData = (string.IsNullOrWhiteSpace(commands) ? null: new COMMANDDATA(commands));
         }
     }
 }

@@ -59,7 +59,7 @@ namespace DIALOGUE
         IEnumerator Line_RunDialogue(DIALOGUELINE line)
         {
             if (line.hasSpeaker)
-                dialogueSystem.ShowSpeakerName(line.speaker);
+                dialogueSystem.ShowSpeakerName(line.speaker.displayName);
             else
                 dialogueSystem.HideSpeakerName();
 
@@ -76,7 +76,6 @@ namespace DIALOGUE
             else
                 architect.Append(dialogue);
 
-            architect.Build(dialogue);
             while (architect.isBuilding)
             {
                 if (userPrompt)
@@ -120,7 +119,7 @@ namespace DIALOGUE
 
         IEnumerator Line_RunCommands(DIALOGUELINE line)
         {
-            Debug.Log(line.commands);
+            Debug.Log(line.commandData);
             yield return null;
         }
 

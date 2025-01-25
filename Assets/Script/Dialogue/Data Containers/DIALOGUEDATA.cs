@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 
 public class DIALOGUEDATA
 {
-    public bool hasDialogue => segments.Count > 0;
     public List<DIALOGUE_SEGMENT> segments;
     private const string segmentIdentifierPatter = @"\{[ca]\}|{w[ca]\s\d*\.?\d*\}";
     public DIALOGUEDATA(string rawDialogue){
