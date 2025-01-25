@@ -14,9 +14,11 @@ public class SIGameManager : MonoBehaviour
     [SerializeField] SIPlayer playerCon;
     Action gameState;
 
+    [SerializeField] GameObject[] spawnEnemyList;
     private void Awake()
     {
         Instance = this;
+        playerCon.enemyAIMirror = Instantiate(spawnEnemyList[UnityEngine.Random.Range(0, spawnEnemyList.Length)], new Vector2(7f, 0f), Quaternion.identity).GetComponent<SIEnemyAI>();
     }
     // Start is called before the first frame update
     void Start()

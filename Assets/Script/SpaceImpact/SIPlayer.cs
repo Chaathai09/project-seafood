@@ -11,7 +11,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     Action gameState;
     Transform tempPos;
     [SerializeField] GameObject ammoprefap;
-    [SerializeField] SIEnemyAI enemyAIMirror;
+    public SIEnemyAI enemyAIMirror;
     [SerializeField] int playerHP;
     bool canHit = true;
     [SerializeField] GameObject playerSprite;
