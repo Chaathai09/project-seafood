@@ -11,10 +11,12 @@ public class CitybombGameManager : MonoBehaviour
     [SerializeField] TMP_Text cityBombScoreText, totelScoreText;
     [SerializeField] GameObject startHintUI, showScoreUI;
     [SerializeField] GameInfoObj gameInfoObj;
+    [SerializeField] GameObject[] stageList;
 
     private void Awake()
     {
         Instance = this;
+        stageList[Random.Range(0, stageList.Length)].SetActive(true);
     }
 
     private void Update()
