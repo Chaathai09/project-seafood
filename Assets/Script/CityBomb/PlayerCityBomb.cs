@@ -15,6 +15,8 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     Action gameState;
     [SerializeField] GameObject bombPrefap;
     [SerializeField] float delayTime;
+    List<GameObject> bombUIList = new();
+    [SerializeField] GameObject bombPanal, bombPicPrefab;
 
 
     // Start is called before the first frame update
@@ -22,6 +24,10 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     {
         playerObj.transform.position = startPoint;
         useBombNum = bombNum;
+        for (int i = 0; i < bombNum; i++)
+        {
+            bombUIList.Add(Instantiate(bombPicPrefab, bombPanal.transform));
+        }
         gameState = WaitForStart;
     }
 
@@ -38,6 +44,11 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
         {
             playerObj.transform.position = new Vector2(startPoint.x, playerObj.transform.position.y - 1f);
             useBombNum = bombNum;
+
+            foreach (GameObject go in bombUIList)
+            {
+                go.SetActive(true);
+            }
 
             if (playerObj.transform.position.y < -4f)
             {
@@ -73,6 +84,7 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
         {
             Vector2 temp = new Vector2(MathF.Round(playerObj.transform.position.x), playerObj.transform.position.y);
             Instantiate(bombPrefap, temp, playerObj.transform.rotation);
+            bombUIList[bombNum - useBombNum].SetActive(false);
             useBombNum -= 1;
         }
     }
