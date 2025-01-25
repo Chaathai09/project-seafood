@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DIALOGUE;
 
 public class MainPlayerCon : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class MainPlayerCon : MonoBehaviour
             Flip();
         else if(movement < 0 && isFacingRight)
             Flip();
+
+        if(Input.GetKeyDown(KeyCode.Z)){
+            PromptAdvance();
+        }
         
     }
 
@@ -41,5 +46,9 @@ public class MainPlayerCon : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    public void PromptAdvance(){
+        DialogueSystem.instance.OnUserPrompt_Next();
     }
 }
