@@ -8,11 +8,12 @@ TagManager:
   - PlayerObj
   - Meteor
   - Missile
+  - NPC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerSprite
   - Water
   - UI
   - 
