@@ -12,7 +12,10 @@ public class BombDrop : MonoBehaviour, CityBombCondition
         this.gameObject.transform.Translate((Vector2.down * speed) * Time.deltaTime);
 
         if (this.transform.position.y <= -5f)
+        {
+            ParticleManager.Instance.AddParticle(0, this.transform.position);
             Destroy(this.gameObject);
+        }
     }
 
     public void IsHit()

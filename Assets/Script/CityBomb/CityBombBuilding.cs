@@ -27,6 +27,7 @@ public class CityBombBuilding : MonoBehaviour
     {
         //play ani
         CitybombGameManager.Instance.AddScore();
+        ParticleManager.Instance.AddParticle(0, this.transform.position);
         Destroy(this.gameObject);
     }
 }
