@@ -11,11 +11,13 @@ public class MSGameManager : MonoBehaviour
     [SerializeField] float spawnDelay;
     int msScore = 0;
     [SerializeField] int getScore;
-    [SerializeField] TMP_Text msScoreText, msHPText, msTimerText;
+    [SerializeField] TMP_Text msScoreText, msHPText, msTimerText, totelScoreText;
     [SerializeField] int playerHP;
     [SerializeField] MSPlayerCon playerCon;
     [SerializeField] float timeLimit;
     Action gameState;
+    [SerializeField] GameObject startHintUI, showScoreUI;
+    [SerializeField] GameInfoObj gameInfoObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class MSGameManager : MonoBehaviour
         msScoreText.text = msScore.ToString();
         msHPText.text = playerHP.ToString();
         msTimerText.text = Mathf.Ceil(timeLimit).ToString();
+        totelScoreText.text = msScore.ToString("000 000 000");
         if (gameState != null)
         {
             gameState();
@@ -46,11 +49,14 @@ public class MSGameManager : MonoBehaviour
     public void StartInvoke()
     {
         InvokeRepeating("SpawnMeteor", 0f, spawnDelay);
+        startHintUI.SetActive(false);
         gameState = TimeCount;
     }
     public void StopInvoke()
     {
         CancelInvoke();
+        showScoreUI.SetActive(true);
+        gameInfoObj.AddScore(msScore);
         gameState = null;
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Meteor"))
         {
@@ -81,5 +87,10 @@ public class MSGameManager : MonoBehaviour
         {
             playerCon.EndGame();
         }
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 }

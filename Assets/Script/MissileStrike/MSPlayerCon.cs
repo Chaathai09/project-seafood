@@ -19,7 +19,8 @@ public class MSPlayerCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameState();
+        if (gameState != null)
+            gameState();
     }
 
     IEnumerator ShotAmmo()
@@ -55,12 +56,22 @@ public class MSPlayerCon : MonoBehaviour
 
     public void EndGame()
     {
-        ChangeState(Nothing);
         MSGameManager.Instance.StopInvoke();
+        StartCoroutine(JustWait());
     }
 
     void Nothing()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            MSGameManager.Instance.LoadScene(1);
+        }
+    }
 
+    IEnumerator JustWait()
+    {
+        ChangeState(null);
+        yield return new WaitForSeconds(2f);
+        ChangeState(Nothing);
     }
 }
