@@ -55,7 +55,10 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     void WaitForStart()
     {
         if (Input.GetKeyDown(KeyCode.Z))
+        {
             ChangeState(MiniGameRun);
+            CitybombGameManager.Instance.StartGame();
+        }
     }
 
     void ChangeState(Action state)
@@ -76,12 +79,14 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     public void IsHit()
     {
         EndMiniGame();
+        CitybombGameManager.Instance.PlayerHit();
     }
 
     void EndMiniGame()
     {
         //do end game
         ChangeState(Nothing);
+        CitybombGameManager.Instance.EndGame();
     }
 
     void Nothing()
