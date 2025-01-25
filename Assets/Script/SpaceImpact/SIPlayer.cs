@@ -30,7 +30,8 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     // Update is called once per frame
     void Update()
     {
-        gameState();
+        if (gameState != null)
+            gameState();
         playerHPText.text = playerHP.ToString();
     }
 
@@ -108,21 +109,31 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
 
     void OnLose()
     {
-        ChangeState(Nothing);
         enemyAIMirror.StopAllCoroutines();
         SIGameManager.Instance.StopGame();
+        StartCoroutine(JustWait());
         //play dies ani
     }
 
     void Nothing()
     {
-
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SIGameManager.Instance.LoadScene(1);
+        }
     }
 
     public void EndGame()
     {
-        ChangeState(Nothing);
         enemyAIMirror.StopAllCoroutines();
         SIGameManager.Instance.StopGame();
+        StartCoroutine(JustWait());
+    }
+
+    IEnumerator JustWait()
+    {
+        ChangeState(null);
+        yield return new WaitForSeconds(2f);
+        ChangeState(Nothing);
     }
 }

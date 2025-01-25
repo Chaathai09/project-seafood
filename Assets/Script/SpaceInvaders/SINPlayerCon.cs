@@ -61,6 +61,21 @@ public class SINPlayerCon : MonoBehaviour
 
     public void EndGame()
     {
-        gameState = null;
+        StartCoroutine(JustWait());
+    }
+
+    void Nothing()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SINGameManager.Instance.LoadScene(1);
+        }
+    }
+
+    IEnumerator JustWait()
+    {
+        ChangeState(null);
+        yield return new WaitForSeconds(2f);
+        ChangeState(Nothing);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SINEnemyCon : MonoBehaviour, CityBombCondition
 {
+    public SINEnemyGroupCon enemyGroupCon;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +14,14 @@ public class SINEnemyCon : MonoBehaviour, CityBombCondition
     // Update is called once per frame
     void Update()
     {
+        if (this.transform.position.x >= 8f || this.transform.position.x <= -8f)
+        {
+            enemyGroupCon.isTimeToFilp = true;
+        }
         if (this.transform.position.y <= -3f)
         {
-            SINGameManager.Instance.EndGame();
+            enemyGroupCon.isRun = false;
+            this.enabled = false;
         }
     }
 
