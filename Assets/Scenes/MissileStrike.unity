@@ -432,6 +432,7 @@ MonoBehaviour:
   turnSpeed: 100
   missilePrefap: {fileID: 7053214715320244374, guid: 11639e9afcd75924fafde8f5c37eaacf, type: 3}
   missileSpawnPoint: {fileID: 66435242}
+  deleyTime: 0.5
 --- !u!1 &1580152004
 GameObject:
   m_ObjectHideFlags: 0
