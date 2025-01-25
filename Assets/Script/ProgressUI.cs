@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ProgressUI : MonoBehaviour
 {
-    public int currentLevel = 1;
+    [SerializeField] GameInfoObj gameInfoObj;
+    int currentLevel = 1;
     public Image[] lights = new Image[5];
     public Sprite[] lightStatus = new Sprite[3];
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class ProgressUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentLevel = gameInfoObj.currentLevel;
         switch (currentLevel)
         {
             case 1:
