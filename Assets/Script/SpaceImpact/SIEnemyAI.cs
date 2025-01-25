@@ -54,4 +54,12 @@ public class SIEnemyAI : MonoBehaviour, CityBombCondition
         yield return new WaitForSeconds(shotDelay);
         StartCoroutine(ShotDelay());
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag != "EnemyObj")
+        {
+            other.gameObject.GetComponent<CityBombCondition>().IsHit();
+        }
+    }
 }
