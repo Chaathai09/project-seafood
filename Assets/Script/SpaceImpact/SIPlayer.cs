@@ -55,7 +55,10 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     void WaitForStart()
     {
         if (Input.GetKeyDown(KeyCode.Z))
+        {
             ChangeState(MiniGameRun);
+            SIGameManager.Instance.StartGame();
+        }
     }
 
     void ChangeState(Action state)
@@ -106,11 +109,18 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     void OnLose()
     {
         ChangeState(Nothing);
+        SIGameManager.Instance.StopGame();
         //play dies ani
     }
 
     void Nothing()
     {
 
+    }
+
+    public void EndGame()
+    {
+        ChangeState(Nothing);
+        SIGameManager.Instance.StopGame();
     }
 }
