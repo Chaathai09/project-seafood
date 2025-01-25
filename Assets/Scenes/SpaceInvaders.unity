@@ -155,7 +155,7 @@ MonoBehaviour:
   enemyPrefap: {fileID: 4426879331938680489, guid: c442c943fd15f9a40beed0bd8017f312, type: 3}
   startPos: -5
   row: 3
-  moveTime: 2
+  moveTime: 1
 --- !u!4 &1761676095
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class SINEnemyGroupCon : MonoBehaviour
     [SerializeField] GameObject enemyPrefap;
     [SerializeField] int startPos, row;
     [SerializeField] float moveTime;
-    float goDriction = 1f;
+    float goDriction = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
