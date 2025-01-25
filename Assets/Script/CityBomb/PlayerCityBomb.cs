@@ -27,7 +27,8 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
 
     private void Update()
     {
-        gameState();
+        if (gameState != null)
+            gameState();
         bombText.text = useBombNum.ToString();
     }
 
@@ -85,13 +86,24 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     void EndMiniGame()
     {
         //do end game
-        ChangeState(Nothing);
         CitybombGameManager.Instance.EndGame();
+        StartCoroutine(JustWait());
     }
 
     void Nothing()
     {
-        //just do nothing to anti null ref.
+        //Now this will use for Load scene LOL
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            CitybombGameManager.Instance.LoadScene(1);
+        }
+    }
+
+    IEnumerator JustWait()
+    {
+        ChangeState(null);
+        yield return new WaitForSeconds(2f);
+        ChangeState(Nothing);
     }
 
 }

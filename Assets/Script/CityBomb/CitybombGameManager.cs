@@ -44,4 +44,9 @@ public class CitybombGameManager : MonoBehaviour
         showScoreUI.SetActive(true);
         gameInfoObj.AddScore(cityBombScore);
     }
+
+    public void LoadScene(int sceneIndex)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+    }
 }
