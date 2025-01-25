@@ -52,4 +52,15 @@ public class MSPlayerCon : MonoBehaviour
             StartCoroutine(ShotAmmo());
         }
     }
+
+    public void EndGame()
+    {
+        ChangeState(Nothing);
+        MSGameManager.Instance.StopInvoke();
+    }
+
+    void Nothing()
+    {
+
+    }
 }

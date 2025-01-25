@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeteorCon : MonoBehaviour, CityBombCondition
 {
-    [SerializeField] float speed;
+    public float speed;
     [SerializeField] int hp;
 
     // Start is called before the first frame update
@@ -17,6 +17,11 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
     void Update()
     {
         this.transform.Translate((Vector2.down * speed) * Time.deltaTime);
+        if(this.transform.position.y < -4f)
+        {
+            MSGameManager.Instance.RemoveHP();
+            Destroy(this.gameObject);
+        }
     }
 
     public void SetMeteor(float size)
@@ -35,6 +40,9 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
     {
         hp--;
         if (hp <= 0)
+        {
+            MSGameManager.Instance.AddScore(this.transform.localScale.x);
             Destroy(this.gameObject);
+        }
     }
 }
