@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SINGameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class SINGameManager : MonoBehaviour
     [SerializeField] SINPlayerCon PlayerCon;
     int sinScore = 0;
     [SerializeField] int getScore;
+    [SerializeField] TMP_Text sinScoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +21,7 @@ public class SINGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        sinScoreText.text = sinScore.ToString();
     }
 
     public void AddScore()
