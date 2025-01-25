@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  ammoprefap: {fileID: 6395209221753456693, guid: 545c8c62e8e03fd43a4d550daa938ce7, type: 3}
-  shotDelay: 0.1
+  ammoprefap: {fileID: 3974963141935749425, guid: e45436221da174848abf6269c353a57d, type: 3}
+  shotDelay: 0.2
 --- !u!61 &5561361014918158776
 BoxCollider2D:
   m_ObjectHideFlags: 0
