@@ -6,6 +6,7 @@ public class SINGameManager : MonoBehaviour
 {
     static public SINGameManager Instance;
     [SerializeField] SINEnemyGroupCon enemyCon;
+    [SerializeField] SINPlayerCon PlayerCon;
     int sinScore = 0;
     [SerializeField] int getScore;
 
@@ -25,5 +26,17 @@ public class SINGameManager : MonoBehaviour
     {
         sinScore += getScore;
         enemyCon.MinusTime();
+    }
+
+    public void GameStart()
+    {
+        enemyCon.StartMove();
+    }
+
+    public void EndGame()
+    {
+        enemyCon.isRun = false;
+        enemyCon.StopAllCoroutines();
+        PlayerCon.EndGame();
     }
 }

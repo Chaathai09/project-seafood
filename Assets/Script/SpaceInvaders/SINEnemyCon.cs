@@ -13,7 +13,10 @@ public class SINEnemyCon : MonoBehaviour, CityBombCondition
     // Update is called once per frame
     void Update()
     {
-
+        if (this.transform.position.y <= -3f)
+        {
+            SINGameManager.Instance.EndGame();
+        }
     }
 
     public void IsHit()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public class SINEnemyGroupCon : MonoBehaviour
     [SerializeField] int startPos, row;
     [SerializeField] float moveTime, minusTime;
     float goDriction = 0.5f;
+    public bool isRun = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +24,6 @@ public class SINEnemyGroupCon : MonoBehaviour
 
         this.transform.position = new Vector2(-(startPos + 8) + 1, 4);
 
-
-        StartCoroutine(EnemyMove());
-
     }
 
     // Update is called once per frame
@@ -32,17 +32,22 @@ public class SINEnemyGroupCon : MonoBehaviour
 
     }
 
+    public void StartMove()
+    {
+        StartCoroutine(EnemyMove());
+    }
+
     IEnumerator EnemyMove()
     {
         yield return new WaitForSeconds(moveTime);
         if (this.transform.position.x >= startPos + 8 || this.transform.position.x <= -(startPos + 8))
         {
-            StartCoroutine(EnemyMoveDown());
+            CheckIsRun("EnemyMoveDown");
         }
         else
         {
             this.transform.Translate(new Vector2(goDriction, 0f));
-            StartCoroutine(EnemyMove());
+            CheckIsRun("EnemyMove");
         }
     }
 
@@ -52,11 +57,19 @@ public class SINEnemyGroupCon : MonoBehaviour
         goDriction *= -1f;
         yield return new WaitForSeconds(moveTime);
         this.transform.Translate(new Vector2(goDriction, 0f));
-        StartCoroutine(EnemyMove());
+        CheckIsRun("EnemyMove");
     }
 
     public void MinusTime()
     {
         moveTime -= minusTime;
+    }
+
+    void CheckIsRun(string action)
+    {
+        if (isRun)
+        {
+            StartCoroutine(action);
+        }
     }
 }
