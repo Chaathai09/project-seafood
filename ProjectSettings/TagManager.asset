@@ -9,6 +9,7 @@ TagManager:
   - Meteor
   - Missile
   - NPC
+  - Seat
   layers:
   - Default
   - TransparentFX

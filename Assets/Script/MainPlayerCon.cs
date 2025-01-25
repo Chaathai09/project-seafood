@@ -9,9 +9,10 @@ public class MainPlayerCon : MonoBehaviour
     GameObject player;
     [SerializeField] Animator animator;
     [SerializeField] float speed;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] GameObject sprite;
+    [SerializeField] GameObject balloon;
     private bool isFacingRight = true;
-
+    private bool canInteract = false;
     private void Awake()
     {
         player = this.gameObject;
@@ -39,16 +40,25 @@ public class MainPlayerCon : MonoBehaviour
             PromptAdvance();
         }
         
+        balloon.SetActive(canInteract);
     }
 
     void Flip(){
         isFacingRight = !isFacingRight;
-        Vector3 scale = transform.localScale;
+        Vector3 scale = sprite.transform.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
+        sprite.transform.localScale = scale;
     }
 
     public void PromptAdvance(){
         DialogueSystem.instance.OnUserPrompt_Next();
+    }
+
+    private void OnTriggerStay2D(Collider2D other){
+        if(other.gameObject.tag == "Seat"){
+            canInteract = true;
+        }else{
+            canInteract = false;
+        }
     }
 }

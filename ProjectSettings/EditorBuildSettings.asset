@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/TitleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 649ec903be33fe547836e0da890300fe
+  - enabled: 1
+    path: Assets/Scenes/CityBombMini.unity
+    guid: 8a332c094b80b3b45ada7a1866d156ad
+  - enabled: 1
+    path: Assets/Scenes/MissileStrike.unity
+    guid: e0d647b451658584090afa8203ec0b1c
+  - enabled: 1
+    path: Assets/Scenes/SpaceImpact.unity
+    guid: 2c6a42ca46d786048b4c560a7df708e7
+  - enabled: 1
+    path: Assets/Scenes/SpaceInvaders.unity
+    guid: dc965917ea73c644da359b8a8889d57f
   m_configObjects: {}
