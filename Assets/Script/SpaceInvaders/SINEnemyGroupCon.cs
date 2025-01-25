@@ -18,7 +18,7 @@ public class SINEnemyGroupCon : MonoBehaviour
         {
             for (int j = startPos; j <= startPos * -1; j++)
             {
-                Instantiate(enemyPrefap, transform.TransformPoint(new Vector2(j, i * -1)), Quaternion.identity, this.transform);
+                Instantiate(enemyPrefap, transform.TransformPoint(new Vector2(j, i * -1)), Quaternion.identity, this.transform).GetComponent<SINEnemyCon>().enemyGroupCon = this;
             }
         }
 
@@ -70,6 +70,10 @@ public class SINEnemyGroupCon : MonoBehaviour
         if (isRun)
         {
             StartCoroutine(action);
+        }
+        else
+        {
+            SINGameManager.Instance.EndGame();
         }
     }
 }
