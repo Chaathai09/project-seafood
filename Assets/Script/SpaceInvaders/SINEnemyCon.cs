@@ -14,6 +14,10 @@ public class SINEnemyCon : MonoBehaviour, CityBombCondition
     // Update is called once per frame
     void Update()
     {
+        if (this.transform.position.x >= 8f || this.transform.position.x <= -8f)
+        {
+            enemyGroupCon.isTimeToFilp = true;
+        }
         if (this.transform.position.y <= -3f)
         {
             enemyGroupCon.isRun = false;

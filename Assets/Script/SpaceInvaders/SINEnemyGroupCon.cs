@@ -10,6 +10,7 @@ public class SINEnemyGroupCon : MonoBehaviour
     [SerializeField] float moveTime, minusTime;
     float goDriction = 0.5f;
     public bool isRun = true;
+    public bool isTimeToFilp = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class SINEnemyGroupCon : MonoBehaviour
     IEnumerator EnemyMove()
     {
         yield return new WaitForSeconds(moveTime);
-        if (this.transform.position.x >= startPos + 8 || this.transform.position.x <= -(startPos + 8))
+        if (isTimeToFilp)
         {
             CheckIsRun("EnemyMoveDown");
         }
@@ -57,6 +58,7 @@ public class SINEnemyGroupCon : MonoBehaviour
         goDriction *= -1f;
         yield return new WaitForSeconds(moveTime);
         this.transform.Translate(new Vector2(goDriction, 0f));
+        isTimeToFilp = false;
         CheckIsRun("EnemyMove");
     }
 
