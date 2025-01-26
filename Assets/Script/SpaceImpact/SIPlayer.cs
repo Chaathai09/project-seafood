@@ -17,6 +17,9 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     [SerializeField] GameObject playerSprite;
     [SerializeField] TMP_Text playerHPText;
 
+    List<GameObject> hpUIList = new();
+    [SerializeField] GameObject hpPanal, hpPicPrefab;
+
     private void Awake()
     {
         siPlayer = this.gameObject;
@@ -24,6 +27,10 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < playerHP; i++)
+        {
+            hpUIList.Add(Instantiate(hpPicPrefab, hpPanal.transform));
+        }
         gameState = WaitForStart;
     }
 
@@ -91,7 +98,10 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
                 OnLose();
             }
             else
+            {
+                hpUIList[playerHP].SetActive(false);
                 StartCoroutine(FlashHP());
+            }
         }
     }
 

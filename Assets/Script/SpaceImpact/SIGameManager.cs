@@ -32,7 +32,7 @@ public class SIGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        siScoreText.text = SIScore.ToString();
+        siScoreText.text = SIScore.ToString("000 000 000");
         siTimeText.text = Mathf.Ceil(timeLimit).ToString();
         totelScoreText.text = SIScore.ToString("000 000 000");
         if (gameState != null)
