@@ -80,6 +80,7 @@ public class SIGameManager : MonoBehaviour
 
     public void LoadScene(int sceneIndex)
     {
+        gameInfoObj.currentLevel += 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 
