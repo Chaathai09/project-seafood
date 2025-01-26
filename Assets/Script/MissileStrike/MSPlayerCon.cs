@@ -10,6 +10,7 @@ public class MSPlayerCon : MonoBehaviour
     [SerializeField] float deleyTime;
     bool canShot = true;
     Action gameState;
+    [SerializeField] AudioClip shotSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class MSPlayerCon : MonoBehaviour
     IEnumerator ShotAmmo()
     {
         Instantiate(missilePrefap, missileSpawnPoint.transform.position, this.transform.rotation);
+        MSGameManager.Instance.PlaySound(shotSound);
         yield return new WaitForSeconds(deleyTime);
         canShot = true;
     }

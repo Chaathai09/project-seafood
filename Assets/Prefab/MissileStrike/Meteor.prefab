@@ -105,6 +105,8 @@ MonoBehaviour:
   - {fileID: 1275761602, guid: eee293defa5a6084b9eb17700cc190e1, type: 3}
   - {fileID: 440554662, guid: eee293defa5a6084b9eb17700cc190e1, type: 3}
   meteorSpriteRenderer: {fileID: 5539020848016945485}
+  destroySound1: {fileID: 8300000, guid: 36af2d452c2a4f34aab184642ce6e4d9, type: 3}
+  destroySound2: {fileID: 8300000, guid: 15227a0786829d24aac2db71539620d8, type: 3}
 --- !u!58 &2466963135298557900
 CircleCollider2D:
   m_ObjectHideFlags: 0

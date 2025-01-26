@@ -8,6 +8,7 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
     [SerializeField] int hp;
     [SerializeField] List<Sprite> meteorSpriteList = new();
     [SerializeField] SpriteRenderer meteorSpriteRenderer;
+    [SerializeField] AudioClip destroySound1, destroySound2;
 
     // Start is called before the first frame update
     void Start()
@@ -19,22 +20,23 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
     void Update()
     {
         this.transform.Translate((Vector2.down * speed) * Time.deltaTime);
-        if(this.transform.position.y < -4f)
+        if (this.transform.position.y < -4f)
         {
             MSGameManager.Instance.RemoveHP();
             //to be change
             ParticleManager.Instance.AddParticle(0, this.transform.position);
+            MSGameManager.Instance.PlaySound(destroySound2);
             Destroy(this.gameObject);
         }
     }
 
     public void SetMeteor(float size)
     {
-        if(size < 1.5f)
+        if (size < 1.5f)
         {
             meteorSpriteRenderer.sprite = meteorSpriteList[2];
         }
-        else if(size > 3.5f)
+        else if (size > 3.5f)
         {
             meteorSpriteRenderer.sprite = meteorSpriteList[1];
         }
@@ -60,6 +62,7 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
             MSGameManager.Instance.AddScore(this.transform.localScale.x);
             //to be change
             ParticleManager.Instance.AddParticle(1, this.transform.position);
+            MSGameManager.Instance.PlaySound(destroySound1);
             Destroy(this.gameObject);
         }
     }

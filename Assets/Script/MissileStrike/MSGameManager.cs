@@ -21,6 +21,7 @@ public class MSGameManager : MonoBehaviour
 
     List<GameObject> hpUIList = new();
     [SerializeField] GameObject hpPanal, hpPicPrefab;
+    [SerializeField] AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,5 +103,10 @@ public class MSGameManager : MonoBehaviour
     {
         gameInfoObj.currentLevel += 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
