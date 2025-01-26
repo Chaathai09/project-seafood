@@ -14,6 +14,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] ambienceClips;
     public AudioClip[] sfxClips;
 
+    [Header("Volumes")]
+    public float bgmVolume;
+    public float ambienceVolume;
+
     private void Awake()
     {
         if (Instance == null)
@@ -25,6 +29,11 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start(){
+        PlayBGM(0);
+        PlayAmbience(0);
     }
 
     public void PlayBGM(int trackIndex)
