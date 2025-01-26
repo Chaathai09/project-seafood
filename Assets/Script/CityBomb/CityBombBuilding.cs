@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CityBombBuilding : MonoBehaviour
 {
+    [SerializeField] AudioClip destroySound;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class CityBombBuilding : MonoBehaviour
         //play ani
         CitybombGameManager.Instance.AddScore();
         ParticleManager.Instance.AddParticle(0, this.transform.position);
+        CitybombGameManager.Instance.PlaySound(destroySound);
         Destroy(this.gameObject);
     }
 }
