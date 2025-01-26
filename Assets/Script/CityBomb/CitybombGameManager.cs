@@ -21,7 +21,7 @@ public class CitybombGameManager : MonoBehaviour
 
     private void Update()
     {
-        cityBombScoreText.text = cityBombScore.ToString();
+        cityBombScoreText.text = cityBombScore.ToString("000 000 000");
         totelScoreText.text = cityBombScore.ToString("000 000 000");
     }
 
