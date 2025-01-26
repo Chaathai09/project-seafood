@@ -6,7 +6,6 @@ using DIALOGUE;
 
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> NPCPrefabs = new List<GameObject>();
     public GameInfoObj gameInfo;
     public GameObject dialogueBox;
     public TextAsset intro;
@@ -14,10 +13,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        NPCPrefabs.Clear();
-        foreach(GameObject onj in GameObject.FindWithTag("NPC").GetComponent<GameObject>()){
-
-        }
         OnNewLevel();
     }
 
@@ -39,8 +34,8 @@ public class GameManager : MonoBehaviour
             gameInfo.isPlayIntro = true; ;
         }
 
-        for(int i = 0;i < NPCPrefabs.Length;i++){
-            NPCDataController npc = NPCPrefabs[i].GetComponent<NPCDataController>();
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("NPC")){
+            NPCDataController npc = obj.GetComponent<NPCDataController>();
             npc.isTalkInThisLevel = false;
         }
     }
