@@ -23,7 +23,7 @@ public class SINEnemyGroupCon : MonoBehaviour
             }
         }
 
-        this.transform.position = new Vector2(-(startPos + 8) + 1, 4);
+        this.transform.position = new Vector2(-(startPos + 8) + 1, 3.5f);
 
     }
 
