@@ -19,6 +19,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
 
     List<GameObject> hpUIList = new();
     [SerializeField] GameObject hpPanal, hpPicPrefab;
+    [SerializeField] AudioClip shotSound, getHitSound;
 
     private void Awake()
     {
@@ -80,6 +81,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
         GameObject temp = Instantiate(ammoprefap, siPlayer.transform.position, siPlayer.transform.rotation);
         temp.tag = "PlayerObj";
         temp.gameObject.GetComponent<SIAmmo>().ammoFrom = "PlayerObj";
+        SIGameManager.Instance.PlaySound(shotSound);
     }
 
     public void IsHit()
@@ -93,6 +95,7 @@ public class SIPlayer : MonoBehaviour, CityBombCondition
         {
             canHit = false;
             playerHP -= 1;
+            SIGameManager.Instance.PlaySound(getHitSound);
             if (playerHP < 0)
             {
                 OnLose();
