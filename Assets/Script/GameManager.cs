@@ -8,11 +8,15 @@ public class GameManager : MonoBehaviour
 {
     public GameInfoObj gameInfo;
     public GameObject dialogueBox;
+    public GameObject endScene;
     public TextAsset intro;
     bool isLevelSuccess;
     // Start is called before the first frame update
     void Awake()
     {
+        if(gameInfo.currentLevel > 5){
+            endScene.SetActive(true);
+        }
         OnNewLevel();
     }
 

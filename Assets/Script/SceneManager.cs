@@ -19,6 +19,12 @@ public class SceneManagerScript : MonoBehaviour
         }
     }
 
+    private void Update(){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+           LoadScene(0);
+        }
+    }
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

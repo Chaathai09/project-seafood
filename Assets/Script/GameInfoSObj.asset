@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f907a2b8579056241a12194543be3847, type: 3}
   m_Name: GameInfoSObj
   m_EditorClassIdentifier: 
-  mainScore: 0
-  currentLevel: 1
-  isPlayIntro: 0
+  mainScore: 100000
+  currentLevel: 5
+  isPlayIntro: 1
