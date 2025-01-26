@@ -1273,7 +1273,7 @@ MonoBehaviour:
   siScoreText: {fileID: 1524348722}
   siTimeText: {fileID: 1434951777}
   totelScoreText: {fileID: 215339125}
-  getScore: 100
+  getScore: 500
   timeLimit: 60
   playerCon: {fileID: 1928380447}
   spawnEnemyList:

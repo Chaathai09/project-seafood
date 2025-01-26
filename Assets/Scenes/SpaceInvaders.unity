@@ -1691,7 +1691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCon: {fileID: 1761676094}
   PlayerCon: {fileID: 900025885}
-  getScore: 100
+  getScore: 800
   sinScoreText: {fileID: 769897922}
   totelScoreText: {fileID: 1261015121}
   startHintUI: {fileID: 1829960068}

@@ -4530,7 +4530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cityBombScore: 0
-  buildingScore: 100
+  buildingScore: 1000
   cityBombScoreText: {fileID: 528558425}
   totelScoreText: {fileID: 2144360614}
   startHintUI: {fileID: 1689970417}

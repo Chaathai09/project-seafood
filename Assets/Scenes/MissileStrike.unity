@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meteorPrefap: {fileID: 2016467210361310957, guid: cf61f7e255a91d94bbcd02fc0025c2ed, type: 3}
   spawnDelay: 2.5
-  getScore: 100
+  getScore: 500
   msScoreText: {fileID: 21612070}
   msHPText: {fileID: 1808928927}
   msTimerText: {fileID: 1677563850}
