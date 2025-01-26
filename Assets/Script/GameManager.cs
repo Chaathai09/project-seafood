@@ -18,4 +18,8 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void TriggerNewLevel(){
+
+    }
 }
