@@ -17,24 +17,33 @@ public class CutsceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void PauseTimeline(){
+    public void PauseTimeline()
+    {
         director.Pause();
     }
-    
-    public void ResumeTimeline(){
-        if(director.state == PlayState.Paused){
+
+    public void ResumeTimeline()
+    {
+        if (director.state == PlayState.Paused)
+        {
             director.Play();
         }
     }
 
-    public void SetNextSceneID(int sceneID){
+    public void SetNextSceneID(int sceneID)
+    {
         nextSceneID = sceneID;
     }
+    public void SetNextSceneIDRandom()
+    {
+        nextSceneID = Random.Range(1, 6);
+    }
 
-    public void LoadScene(){
+    public void LoadScene()
+    {
         SceneManager.LoadScene(nextSceneID);
     }
 }
