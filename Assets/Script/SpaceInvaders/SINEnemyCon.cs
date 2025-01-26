@@ -5,6 +5,7 @@ using UnityEngine;
 public class SINEnemyCon : MonoBehaviour, CityBombCondition
 {
     public SINEnemyGroupCon enemyGroupCon;
+    [SerializeField] AudioClip destroySound;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class SINEnemyCon : MonoBehaviour, CityBombCondition
     {
         SINGameManager.Instance.AddScore();
         ParticleManager.Instance.AddParticle(0, this.transform.position);
+        SINGameManager.Instance.PlaySound(destroySound);
         Destroy(this.gameObject);
     }
 }

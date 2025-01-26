@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGroupCon: {fileID: 0}
+  destroySound: {fileID: 8300000, guid: 15227a0786829d24aac2db71539620d8, type: 3}
 --- !u!61 &3983683999666656956
 BoxCollider2D:
   m_ObjectHideFlags: 0

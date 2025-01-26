@@ -14,6 +14,7 @@ public class SINGameManager : MonoBehaviour
 
     [SerializeField] GameObject startHintUI, showScoreUI;
     [SerializeField] GameInfoObj gameInfoObj;
+    [SerializeField] AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class SINGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sinScoreText.text = sinScore.ToString();
+        sinScoreText.text = sinScore.ToString("000 000 000");
         totelScoreText.text = sinScore.ToString("000 000 000");
     }
 
@@ -53,5 +54,10 @@ public class SINGameManager : MonoBehaviour
     {
         gameInfoObj.currentLevel += 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

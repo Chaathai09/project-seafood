@@ -18,6 +18,7 @@ public class SIGameManager : MonoBehaviour
 
     [SerializeField] GameObject startHintUI, showScoreUI;
     [SerializeField] GameInfoObj gameInfoObj;
+    [SerializeField] AudioSource audioSource;
     private void Awake()
     {
         Instance = this;
@@ -82,6 +83,11 @@ public class SIGameManager : MonoBehaviour
     {
         gameInfoObj.currentLevel += 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 
 }
