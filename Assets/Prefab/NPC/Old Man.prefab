@@ -217,7 +217,7 @@ Transform:
   - {fileID: 1874948256126762251}
   - {fileID: 7718592610499847473}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6117555536756561043
 Rigidbody2D:
@@ -304,6 +304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCDialogues:
-  - fileToRead: {fileID: 4900000, guid: 13e4f96689078104b95e9e8262ce7b76, type: 3}
+  - fileToRead: {fileID: 4900000, guid: 74c90359ec165b149869d814a0a7c4ff, type: 3}
+    isRead: 0
+  - fileToRead: {fileID: 4900000, guid: 086efdeb32a915e4d85cbad41901522e, type: 3}
     isRead: 0
   isTalkInThisLevel: 0

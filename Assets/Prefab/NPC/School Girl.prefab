@@ -303,3 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e66932621e79a4db9779224078ae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCDialogues:
+  - fileToRead: {fileID: 4900000, guid: 2e1f580ca661aab478c5596c1abffccd, type: 3}
+    isRead: 0
+  - fileToRead: {fileID: 4900000, guid: 5f7e4965d0c891d4ca79f8d902d70ef1, type: 3}
+    isRead: 0
+  isTalkInThisLevel: 0

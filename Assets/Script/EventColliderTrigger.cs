@@ -15,7 +15,7 @@ public class EventColliderTrigger : MonoBehaviour
             triggerTag = "NPC";
             thisNpcData = other.gameObject.transform.parent.gameObject.GetComponent<NPCDataController>();
             //Debug.Log(other.gameObject.transform.parent.gameObject.name);
-            timeBalloon.SetActive(false);
+            timeBalloon.SetActive(!thisNpcData.isTalkInThisLevel);
             textBalloon.SetActive(true);
         }
         if (other.tag == "Seat")
@@ -23,6 +23,13 @@ public class EventColliderTrigger : MonoBehaviour
             triggerTag = "Seat";
             timeBalloon.SetActive(true);
             textBalloon.SetActive(false);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other){
+        if(other.tag == "NPC"){
+            if(thisNpcData.isTalkInThisLevel)
+                textBalloon.SetActive(false);
         }
     }
 
