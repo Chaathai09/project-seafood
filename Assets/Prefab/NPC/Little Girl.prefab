@@ -197,6 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e66932621e79a4db9779224078ae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCDialogues:
+  - fileToRead: {fileID: 4900000, guid: f5a6c2febedb0d248ad7e273a3d9bdd8, type: 3}
+    isRead: 0
+  isTalkInThisLevel: 0
 --- !u!1 &5907055616174442353
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class GameInfoObj : ScriptableObject
 {
     public int mainScore;
     public int currentLevel = 1;
+    public bool isPlayIntro = false;
     public void AddScore(int score)
     {
         mainScore += score;

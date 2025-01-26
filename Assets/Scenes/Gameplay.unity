@@ -2860,51 +2860,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752143078}
   m_CullTransparentMesh: 1
---- !u!1 &752991219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 752991220}
-  - component: {fileID: 752991221}
-  m_Layer: 0
-  m_Name: Test Dialogue File & System Conversation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &752991220
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752991219}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1824432611}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &752991221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752991219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70975d81d022f646b6925758809a9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileToRead: {fileID: 4900000, guid: 13e4f96689078104b95e9e8262ce7b76, type: 3}
 --- !u!1 &755237688
 GameObject:
   m_ObjectHideFlags: 0
@@ -6060,13 +6015,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bf3db14cb6b0d4882e14fa8fd602b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICanvas: {fileID: 0}
   NPCPrefabs:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  gameInfo: {fileID: 11400000, guid: e1b8be01ea3d97e4fb0a50478caa90cd, type: 2}
+  dialogueBox: {fileID: 1593092169}
+  intro: {fileID: 4900000, guid: fa269cc1984b86648a2872c37b50cb6b, type: 3}
 --- !u!114 &1644121352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6080,10 +6037,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefabs:
-  - {fileID: 3864916749756133872, guid: 9d3024e07afd3724787b97d76a4457ae, type: 3}
   - {fileID: 8777384544642093913, guid: 20e121a254c7b7f479843cd3b4e38584, type: 3}
-  - {fileID: 8589999748336483013, guid: a0f1fe23ee32ca042b4162947bcab996, type: 3}
+  - {fileID: 3864916749756133872, guid: 9d3024e07afd3724787b97d76a4457ae, type: 3}
   - {fileID: 9131539949364503304, guid: 2a5b52c93262022418199ced81900dae, type: 3}
+  - {fileID: 8589999748336483013, guid: a0f1fe23ee32ca042b4162947bcab996, type: 3}
   spawnLocations:
   - {fileID: 2002011067}
   - {fileID: 1598251388}
@@ -6505,8 +6462,7 @@ Transform:
   m_LocalPosition: {x: 826.6239, y: 339.48874, z: 0.24793822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 752991220}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -50,6 +50,7 @@ public class SceneManagerScript : MonoBehaviour
     public void NewGame(){
         gameInfoObj.currentLevel = 1;
         gameInfoObj.mainScore = 0;
+        gameInfoObj.isPlayIntro = false;
         LoadNextScene();
     }
 
