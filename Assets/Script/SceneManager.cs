@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
+    [SerializeField] GameInfoObj gameInfoObj;
     public static SceneManagerScript Instance;
 
     private void Awake()
@@ -44,6 +45,12 @@ public class SceneManagerScript : MonoBehaviour
         {
             Debug.LogWarning("No more scenes in build order!");
         }
+    }
+
+    public void NewGame(){
+        gameInfoObj.currentLevel = 1;
+        gameInfoObj.mainScore = 0;
+        LoadNextScene();
     }
 
     public void QuitGame()

@@ -1151,7 +1151,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 454182ec3353d144db80e187fd7344e4, type: 3}
   ambienceClips:
   - {fileID: 8300000, guid: 9801c704b41d45145aad2f7d8fb7cb04, type: 3}
-  sfxClips: []
+  sfxClips:
+  - {fileID: 8300000, guid: 567b4ced37e4e4245945c9019fe43d44, type: 3}
   bgmVolume: 0
   ambienceVolume: 0
 --- !u!1 &1847561991
@@ -1576,3 +1577,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62caecd0a2edb764bbdb55bf8f653dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameInfoObj: {fileID: 0}
