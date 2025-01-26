@@ -17,6 +17,7 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
     [SerializeField] float delayTime;
     List<GameObject> bombUIList = new();
     [SerializeField] GameObject bombPanal, bombPicPrefab;
+    [SerializeField] AudioClip shotSound;
 
 
     // Start is called before the first frame update
@@ -86,6 +87,7 @@ public class PlayerCityBomb : MonoBehaviour, CityBombCondition
             Instantiate(bombPrefap, temp, playerObj.transform.rotation);
             bombUIList[bombNum - useBombNum].SetActive(false);
             useBombNum -= 1;
+            CitybombGameManager.Instance.PlaySound(shotSound);
         }
     }
 
