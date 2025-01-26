@@ -6,6 +6,8 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
 {
     public float speed;
     [SerializeField] int hp;
+    [SerializeField] List<Sprite> meteorSpriteList = new();
+    [SerializeField] SpriteRenderer meteorSpriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -21,13 +23,25 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
         {
             MSGameManager.Instance.RemoveHP();
             //to be change
-            ParticleManager.Instance.AddParticle(1, this.transform.position);
+            ParticleManager.Instance.AddParticle(0, this.transform.position);
             Destroy(this.gameObject);
         }
     }
 
     public void SetMeteor(float size)
     {
+        if(size < 1.5f)
+        {
+            meteorSpriteRenderer.sprite = meteorSpriteList[2];
+        }
+        else if(size > 3.5f)
+        {
+            meteorSpriteRenderer.sprite = meteorSpriteList[1];
+        }
+        else
+        {
+            meteorSpriteRenderer.sprite = meteorSpriteList[1];
+        }
         this.transform.localScale = new Vector3(size, size, size);
         hp = (int)Mathf.Round(hp * size);
         speed /= size;

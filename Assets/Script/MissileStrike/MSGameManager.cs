@@ -90,7 +90,7 @@ public class MSGameManager : MonoBehaviour
     public void RemoveHP()
     {
         playerHP--;
-        if (playerHP <= 0)
+        if (playerHP < 0)
         {
             playerCon.EndGame();
         }
