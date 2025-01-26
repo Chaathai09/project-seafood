@@ -7892,6 +7892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f759037fefb79bf448f80079246d0921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameInfoObj: {fileID: 11400000, guid: e1b8be01ea3d97e4fb0a50478caa90cd, type: 2}
   director: {fileID: 2074392493}
   nextSceneID: 1
 --- !u!114 &2074392495

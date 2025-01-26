@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneController : MonoBehaviour
 {
+    [SerializeField] GameInfoObj gameInfoObj;
+
     public PlayableDirector director;
     public int nextSceneID;
     // Start is called before the first frame update
@@ -39,7 +41,10 @@ public class CutsceneController : MonoBehaviour
     }
     public void SetNextSceneIDRandom()
     {
-        nextSceneID = Random.Range(1, 6);
+        if (gameInfoObj.currentLevel == 5)
+            nextSceneID = Random.Range(2, 6);
+        else
+            nextSceneID = gameInfoObj.currentLevel + 1;
     }
 
     public void LoadScene()
