@@ -28,6 +28,7 @@ public class SINEnemyCon : MonoBehaviour, CityBombCondition
     public void IsHit()
     {
         SINGameManager.Instance.AddScore();
+        ParticleManager.Instance.AddParticle(1, this.transform.position);
         Destroy(this.gameObject);
     }
 }

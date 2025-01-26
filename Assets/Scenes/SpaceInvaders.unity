@@ -275,6 +275,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190503467}
   m_CullTransparentMesh: 1
+--- !u!1 &502309464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502309466}
+  - component: {fileID: 502309465}
+  m_Layer: 0
+  m_Name: ParticleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &502309465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502309464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda73749ff244344782c521817cbe1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleList:
+  - {fileID: 2287897844468921089, guid: ee178401c4c259940aac06bbd6215d88, type: 3}
+  - {fileID: 2287897844468921089, guid: fc4540a314c164f48962bb452f8e82b1, type: 3}
+--- !u!4 &502309466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502309464}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &605856889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1146,7 @@ MonoBehaviour:
   moveTime: 1
   minusTime: 0.03
   isRun: 1
+  isTimeToFilp: 0
 --- !u!4 &1761676095
 Transform:
   m_ObjectHideFlags: 0
