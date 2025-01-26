@@ -7,11 +7,14 @@ public class EventColliderTrigger : MonoBehaviour
     [SerializeField] GameObject textBalloon;
     [SerializeField] GameObject timeBalloon;
     public string triggerTag = "";
+    public NPCDataController thisNpcData;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "NPC")
         {
             triggerTag = "NPC";
+            thisNpcData = other.gameObject.transform.parent.gameObject.GetComponent<NPCDataController>();
+            //Debug.Log(other.gameObject.transform.parent.gameObject.name);
             timeBalloon.SetActive(false);
             textBalloon.SetActive(true);
         }
@@ -26,6 +29,7 @@ public class EventColliderTrigger : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         triggerTag = "";
+        thisNpcData = null;
         timeBalloon.SetActive(false);
         textBalloon.SetActive(false);
     }

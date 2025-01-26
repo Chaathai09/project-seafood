@@ -52,8 +52,11 @@ namespace DIALOGUE
                 {
                     yield return Line_RunCommands(line);
                 }
+
+                if(line.hasDialogue)
+                    //Wait for User Input
+                    yield return WaitForUserInput();
             }
-            yield return new WaitForSeconds(1);
         }
 
         IEnumerator Line_RunDialogue(DIALOGUELINE line)
@@ -65,13 +68,12 @@ namespace DIALOGUE
 
             yield return BuildLineSegments(line.dialogue);
 
-            //Wait for User Input
-            yield return WaitForUserInput();
+
         }
 
         IEnumerator BuildDialogue(string dialogue, bool append = false)
         {
-            if(!append)
+            if (!append)
                 architect.Build(dialogue);
             else
                 architect.Append(dialogue);
@@ -119,7 +121,11 @@ namespace DIALOGUE
 
         IEnumerator Line_RunCommands(DIALOGUELINE line)
         {
-            Debug.Log(line.commandData);
+            List<COMMANDDATA.Command> commands = line.commandData.commands;
+            foreach (COMMANDDATA.Command command in commands)
+            {
+                CommandManager.instance.Execute(command.name, command.arguments);
+            }
             yield return null;
         }
 

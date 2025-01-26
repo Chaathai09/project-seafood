@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 9035828033778072000}
   - component: {fileID: 6024279321624506307}
   - component: {fileID: 7119196127208141258}
+  - component: {fileID: 9088269234820661584}
   m_Layer: 0
   m_Name: Little Boy
   m_TagString: NPC
@@ -290,3 +291,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3004789, y: 0.13879347}
   m_EdgeRadius: 0
+--- !u!114 &9088269234820661584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777384544642093913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e66932621e79a4db9779224078ae54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

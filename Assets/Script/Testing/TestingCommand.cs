@@ -8,7 +8,7 @@ public class TestingCommand : MonoBehaviour
     void Start()
     {
 
-        //StartCoroutine(Running());
+        StartCoroutine(Running());
     }
 
     // Update is called once per frame

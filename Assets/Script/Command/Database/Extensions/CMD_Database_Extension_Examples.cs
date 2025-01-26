@@ -18,6 +18,8 @@ public class CMD_Database_Extension_Examples : CMD_Database_Extension
         database.AddCommand("process", new Func<IEnumerator>(SimpleProcess));
         database.AddCommand("process_1p", new Func<string, IEnumerator>(LineProcess));
         database.AddCommand("process_mp", new Func<string[], IEnumerator>(MultilineProcess));
+
+        database.AddCommand("end_dl", new Func<IEnumerator>(CloseDialogueBox));
     }
 
     private static void PrintDefaultMessage()
@@ -67,5 +69,14 @@ public class CMD_Database_Extension_Examples : CMD_Database_Extension
         Debug.Log($"Process Message: '{line}'");
         yield return new WaitForSeconds(0.5f);
        }
+    }
+
+    private static IEnumerator CloseDialogueBox(){
+        GameObject dialogueBox = GameObject.Find("Dialogue Box");
+        if(dialogueBox == null)
+            yield return null;
+
+        dialogueBox.SetActive(false);
+        yield return new WaitForSeconds(1);
     }
 }

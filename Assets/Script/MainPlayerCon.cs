@@ -8,14 +8,15 @@ using Unity.VisualScripting;
 public class MainPlayerCon : MonoBehaviour
 {
     GameObject player;
+    public float InputCooldown = 2f;
+    private float nextAllowedTime = 0f;
     [SerializeField] Animator animator;
     [SerializeField] float speed;
     [SerializeField] GameObject sprite;
-    [SerializeField] GameObject balloon;
     [SerializeField] EventColliderTrigger eventColliderTrigger;
     [SerializeField] GameObject transitionScene;
+    [SerializeField] GameObject dialogueBox;
     private bool isFacingRight = true;
-    private bool canInteract = false;
     private bool isOverrideInteract = false;
     private void Awake()
     {
@@ -30,7 +31,23 @@ public class MainPlayerCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Interact();
+        isOverrideInteract = !dialogueBox.activeSelf;
+        if (isOverrideInteract)
+        {
+            Interact();
+            Move();
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                PromptAdvance();
+            }
+        }
+    }
+
+    void Move()
+    {
         float movement = Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime;
         player.transform.Translate(new Vector2(movement, 0f));
 
@@ -40,31 +57,48 @@ public class MainPlayerCon : MonoBehaviour
             Flip();
         else if (movement < 0 && isFacingRight)
             Flip();
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            PromptAdvance();
-        }
-
-        balloon.SetActive(canInteract);
     }
 
     void Interact()
     {
-        if (Input.GetKeyUp(KeyCode.Z))
+        if (Time.time >= nextAllowedTime)
         {
-            if (!isOverrideInteract)
+            if (Input.GetKeyUp(KeyCode.Z))
             {
                 if (eventColliderTrigger.triggerTag == "Seat")
                 {
                     if (!transitionScene.activeSelf)
                     {
-                         transitionScene.SetActive(true);
-                         isOverrideInteract = true;
+                        transitionScene.SetActive(true);
+                        isOverrideInteract = true;
                     }
                 }
+                else if (eventColliderTrigger.triggerTag == "NPC")
+                {
+                    isOverrideInteract = false;
+                    NPCDataController currentNPC = eventColliderTrigger.thisNpcData;
+                    if (currentNPC != null)
+                    {
+                        //Debug.Log(currentNPC.gameObject.name);
+                        if (!currentNPC.isTalkInThisLevel)
+                        {
+                            currentNPC.isTalkInThisLevel = true;
+                            Talk(currentNPC.NPCDialogues[0].fileToRead);
+                        }
+                    }
+                }
+                nextAllowedTime = Time.time + InputCooldown;
             }
+
         }
+    }
+
+    void Talk(TextAsset dialogue)
+    {
+        dialogueBox.SetActive(true);
+        List<string> lines = FileManager.ReadTextAsset(dialogue);
+
+        DialogueSystem.instance.Say(lines);
     }
 
     void Flip()
@@ -78,17 +112,5 @@ public class MainPlayerCon : MonoBehaviour
     public void PromptAdvance()
     {
         DialogueSystem.instance.OnUserPrompt_Next();
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Seat")
-        {
-            canInteract = true;
-        }
-        else
-        {
-            canInteract = false;
-        }
     }
 }

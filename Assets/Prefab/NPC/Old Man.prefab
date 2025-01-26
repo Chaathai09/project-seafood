@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 7441848904043650325}
   - component: {fileID: 6117555536756561043}
   - component: {fileID: 8606231292815305027}
+  - component: {fileID: 1314086900655037696}
   m_Layer: 0
   m_Name: Old Man
   m_TagString: NPC
@@ -208,7 +209,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9131539949364503304}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.4500122, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
@@ -216,7 +217,7 @@ Transform:
   - {fileID: 1874948256126762251}
   - {fileID: 7718592610499847473}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6117555536756561043
 Rigidbody2D:
@@ -290,3 +291,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3004789, y: 0.13879347}
   m_EdgeRadius: 0
+--- !u!114 &1314086900655037696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131539949364503304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e66932621e79a4db9779224078ae54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCDialogues:
+  - fileToRead: {fileID: 4900000, guid: 13e4f96689078104b95e9e8262ce7b76, type: 3}
+    isRead: 0
+  isTalkInThisLevel: 0

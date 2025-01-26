@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 5057329863457683360}
   - component: {fileID: 6152312715242170696}
   - component: {fileID: 8590563777038031366}
+  - component: {fileID: 4232367454037468498}
   m_Layer: 0
   m_Name: School Girl
   m_TagString: NPC
@@ -216,7 +217,7 @@ Transform:
   - {fileID: 9188188282064783495}
   - {fileID: 7042630067394340854}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &6152312715242170696
 Rigidbody2D:
@@ -290,3 +291,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3004789, y: 0.13879347}
   m_EdgeRadius: 0
+--- !u!114 &4232367454037468498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589999748336483013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e66932621e79a4db9779224078ae54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

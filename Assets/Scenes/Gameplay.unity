@@ -200,50 +200,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40321277}
   m_CullTransparentMesh: 1
---- !u!1 &47865706
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 47865707}
-  - component: {fileID: 47865708}
-  m_Layer: 0
-  m_Name: Test Command
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &47865707
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47865706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1824432611}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &47865708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 47865706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2475a7f6abe8a70438cdd501b07e9553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &61334101
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317068591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1654,12 +1610,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abfc93b32ccd164fb86645f9f3ef088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputCooldown: 2
   animator: {fileID: 1179076241}
   speed: 7
   sprite: {fileID: 1179076238}
-  balloon: {fileID: 1965035707}
   eventColliderTrigger: {fileID: 635462246}
   transitionScene: {fileID: 1819151162}
+  dialogueBox: {fileID: 1593092169}
 --- !u!1 &488467570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2500,7 @@ MonoBehaviour:
   textBalloon: {fileID: 2065778898}
   timeBalloon: {fileID: 1965035707}
   triggerTag: 
+  thisNpcData: {fileID: 0}
 --- !u!1 &674517790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,7 +3135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803148807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5590,6 +5548,7 @@ GameObject:
   - component: {fileID: 1593092170}
   - component: {fileID: 1593092172}
   - component: {fileID: 1593092171}
+  - component: {fileID: 1593092173}
   m_Layer: 5
   m_Name: Dialogue Box
   m_TagString: Untagged
@@ -5657,6 +5616,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593092169}
   m_CullTransparentMesh: 1
+--- !u!114 &1593092173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593092169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647bdcb82baa6f04c9963e2bd1728563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portrait: {fileID: 1111802177}
+  textMeshProUGUI: {fileID: 634085496}
+  sprites:
+  - {fileID: 21300000, guid: e94f3fd521956a94b959d26cb8a4997d, type: 3}
+  - {fileID: 21300000, guid: 92838cbf9353f5846bf91a43982482cf, type: 3}
+  - {fileID: 21300000, guid: 12bad1edc0236544daaf610cd4f60bab, type: 3}
+  - {fileID: 21300000, guid: a0d439fe867a82043ab9f597c49a1d06, type: 3}
+  - {fileID: 21300000, guid: bfac00e529ab87a41a775cfeb7e1e9d3, type: 3}
 --- !u!1 &1598251387
 GameObject:
   m_ObjectHideFlags: 0
@@ -6249,7 +6228,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 752991220}
-  - {fileID: 47865707}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
