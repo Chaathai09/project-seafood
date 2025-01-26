@@ -18,16 +18,23 @@ public class MSGameManager : MonoBehaviour
     Action gameState;
     [SerializeField] GameObject startHintUI, showScoreUI;
     [SerializeField] GameInfoObj gameInfoObj;
+
+    List<GameObject> hpUIList = new();
+    [SerializeField] GameObject hpPanal, hpPicPrefab;
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < playerHP; i++)
+        {
+            hpUIList.Add(Instantiate(hpPicPrefab, hpPanal.transform));
+        }
         Instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        msScoreText.text = msScore.ToString();
+        msScoreText.text = msScore.ToString("000 000 000");
         msHPText.text = playerHP.ToString();
         msTimerText.text = Mathf.Ceil(timeLimit).ToString();
         totelScoreText.text = msScore.ToString("000 000 000");
@@ -87,6 +94,8 @@ public class MSGameManager : MonoBehaviour
         {
             playerCon.EndGame();
         }
+        else
+            hpUIList[playerHP].SetActive(false);
     }
 
     public void LoadScene(int sceneIndex)
