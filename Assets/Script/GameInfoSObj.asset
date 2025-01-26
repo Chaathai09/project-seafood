@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameInfoSObj
   m_EditorClassIdentifier: 
   mainScore: 0
+  currentLevel: 1
