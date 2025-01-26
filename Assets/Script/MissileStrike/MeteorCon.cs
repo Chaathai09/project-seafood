@@ -20,6 +20,8 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
         if(this.transform.position.y < -4f)
         {
             MSGameManager.Instance.RemoveHP();
+            //to be change
+            ParticleManager.Instance.AddParticle(1, this.transform.position);
             Destroy(this.gameObject);
         }
     }
@@ -42,6 +44,8 @@ public class MeteorCon : MonoBehaviour, CityBombCondition
         if (hp <= 0)
         {
             MSGameManager.Instance.AddScore(this.transform.localScale.x);
+            //to be change
+            ParticleManager.Instance.AddParticle(1, this.transform.position);
             Destroy(this.gameObject);
         }
     }

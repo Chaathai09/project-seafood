@@ -16,12 +16,16 @@ public class MissileCon : MonoBehaviour
     {
         this.transform.Translate((Vector2.up * speed) * Time.deltaTime);
         if (this.transform.position.y >= 8f)
+        {
+            ParticleManager.Instance.AddParticle(0, this.transform.position);
             Destroy(this.gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         other.gameObject.GetComponent<CityBombCondition>().IsHit();
+        ParticleManager.Instance.AddParticle(0, this.transform.position);
         Destroy(this.gameObject);
     }
 }
