@@ -12,6 +12,8 @@ public class SINPlayerCon : MonoBehaviour
     bool canShot = true;
     Action gameState;
 
+    [SerializeField] AudioClip shotSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class SINPlayerCon : MonoBehaviour
     IEnumerator ShotAmmo()
     {
         Instantiate(ammoprefap, this.transform.position, Quaternion.identity);
+        SINGameManager.Instance.PlaySound(shotSound);
         yield return new WaitForSeconds(deleyTime);
         canShot = true;
     }
